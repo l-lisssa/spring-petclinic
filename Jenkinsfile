@@ -70,6 +70,7 @@ cat > /kaniko/.docker/config.json <<EOF
 {"auths":{"https://index.docker.io/v1/":{"auth":"$AUTH"}}}
 EOF
 /kaniko/executor \
+  --custom-platform=linux/arm64 \
   --context "dir://$WORKSPACE" \
   --dockerfile "$WORKSPACE/Dockerfile" \
   --destination "$IMAGE:$TAG" \
